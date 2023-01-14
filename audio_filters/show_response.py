@@ -14,6 +14,7 @@ class FilterType(Protocol):
 
         >>> issubclass(FilterType, Protocol)
         True
+        不懂
         """
         return 0.0
 
