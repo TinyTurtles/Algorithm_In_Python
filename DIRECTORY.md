@@ -1,7 +1,7 @@
 
 ## Arithmetic Analysis
-  * [Bisection](arithmetic_analysis/bisection.py)
-  * [Gaussian Elimination](arithmetic_analysis/gaussian_elimination.py)
+  * [二分法解方程](arithmetic_analysis/bisection.py)
+  * [高斯消元法解线性方程组](arithmetic_analysis/gaussian_elimination.py)
   * [In Static Equilibrium](arithmetic_analysis/in_static_equilibrium.py)
   * [Intersection](arithmetic_analysis/intersection.py)
   * [Jacobi Iteration Method](arithmetic_analysis/jacobi_iteration_method.py)
