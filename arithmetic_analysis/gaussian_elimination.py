@@ -14,9 +14,9 @@ def gaussian_elimination(coefficients: NDArray[float], vector: NDArray[float]) -
 
     示例：
         Examples:(A*X=B)
-            2x1 + 2x2 - 1x3 = 5
-            0x1 - 2x2 - 1x3 = -7
-            0x1 + 0x2 + 5x3 = 15
+            2*x1 + 2*x2 - 1*x3 = 5
+            0*x1 - 2*x2 - 1*x3 = -7
+            0*x1 + 0*x2 + 5*x3 = 15
 
         A=[[1, -4, -2],
            [5, 2, -2],
@@ -70,9 +70,9 @@ def retroactive_resolution(coefficients: NDArray[float64], vector: NDArray[float
 if __name__ == "__main__":
     """
     Examples:(A*X=B)
-        2x1 + 2x2 - 1x3 = 5        
-        0x1 - 2x2 - 1x3 = -7        
-        0x1 + 0x2 + 5x3 = 15
+        2*x1 + 2*x2 - 1*x3 = 5        
+        0*x1 - 2*x2 - 1*x3 = -7        
+        0*x1 + 0*x2 + 5*x3 = 15
     """
     A=[[1, -4, -2],
        [5, 2, -2],

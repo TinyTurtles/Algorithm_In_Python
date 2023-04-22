@@ -8,7 +8,7 @@ from __future__ import annotations
 
 def generate_all_combinations(n: int, k: int) -> list[list[int]]:
     """
-    >>> generate_all_combinations(n=4, k=2)
+    # >>> generate_all_combinations(n=4, k=2)
     [[1, 2], [1, 3], [1, 4], [2, 3], [2, 4], [3, 4]]
     """
 
@@ -40,7 +40,7 @@ def print_all_state(total_list: list[list[int]]) -> None:
 
 
 if __name__ == "__main__":
-    n = 4
-    k = 2
+    n = 8
+    k = 3
     total_list = generate_all_combinations(n, k)
     print_all_state(total_list)

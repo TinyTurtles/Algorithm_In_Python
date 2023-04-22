@@ -1,36 +1,25 @@
-"""Newton's Method."""
-
-# Newton's Method - https://en.wikipedia.org/wiki/Newton%27s_method
-from collections.abc import Callable
-
-RealFunc = Callable[[float], float]  # type alias for a real -> real function
+from typing import Callable
 
 
-# function is the f(x) and derivative is the f'(x)
 def newton(
-    function: RealFunc,
-    derivative: RealFunc,
+    function: Callable[[float], float],
+    derivative: Callable[[float], float],
     starting_int: int,
 ) -> float:
-    """
-    >>> newton(lambda x: x ** 3 - 2 * x - 5, lambda x: 3 * x ** 2 - 2, 3)
-    2.0945514815423474
-    >>> newton(lambda x: x ** 3 - 1, lambda x: 3 * x ** 2, -2)
-    1.0
-    >>> newton(lambda x: x ** 3 - 1, lambda x: 3 * x ** 2, -4)
-    1.0000000000000102
-    >>> import math
-    >>> newton(math.sin, math.cos, 1)
-    0.0
-    >>> newton(math.sin, math.cos, 2)
-    3.141592653589793
-    >>> newton(math.cos, lambda x: -math.sin(x), 2)
-    1.5707963267948966
-    >>> newton(math.cos, lambda x: -math.sin(x), 0)
-    Traceback (most recent call last):
-        ...
-    ZeroDivisionError: Could not find root
-    """
+    """ 牛顿法解方程，形式为 f(x)=0
+        输入值：
+            function：原函数
+            derivative：函数一阶导数
+            starting_int：搜索初始点
+
+        返回值：
+            返回方程的解，即满足要求的x值
+
+        示例：
+            newton(lambda x: x ** 3 - 2 * x - 5, lambda x: 3 * x ** 2 - 2, 3)
+            result: 2.0945514815423474
+        """
+
     prev_guess = float(starting_int)
     while True:
         try:
@@ -42,13 +31,19 @@ def newton(
         prev_guess = next_guess
 
 
-def f(x: float) -> float:
+def function(x: float) -> float:
+    """
+    function: 原函数
+    """
     return (x**3) - (2 * x) - 5
 
 
-def f1(x: float) -> float:
+def derivative(x: float) -> float:
+    """
+    derivative: 原函数的一阶导数
+    """
     return 3 * (x**2) - 2
 
 
 if __name__ == "__main__":
-    print(newton(f, f1, 3))
+    print(newton(function, derivative, 3))

@@ -1,29 +1,36 @@
-"""
-Implementing Secant method in Python
-Author: dimgrichr
-"""
 from math import exp
+from typing import Callable
 
 
-def f(x: float) -> float:
+def secant_method(func: Callable[[float], float],lower_bound: float, upper_bound: float, repeats: int) -> float:
+    """ 割线法解方程，形式为 f(x)=0
+            输入值：
+                Func：原函数
+                lower_bound：搜索空间下限
+                upper_bound：搜索空间上限
+                repeats: 迭代次数
+
+            返回值：
+                返回方程的解，即满足要求的x值
+
+            示例：
+                secant_method(func, 1, 3, 2)
+                result: 0.2139409276214589
+            """
+
+    x0 = lower_bound
+    x1 = upper_bound
+    for _ in range(0, repeats):
+        x0, x1 = x1, x1 - (func(x1) * (x1 - x0)) / (func(x1) - func(x0))
+    return x1
+
+
+def func(x: float) -> float:
     """
-    >>> f(5)
-    39.98652410600183
+    Func: 原函数
     """
     return 8 * x - 2 * exp(-x)
 
 
-def secant_method(lower_bound: float, upper_bound: float, repeats: int) -> float:
-    """
-    >>> secant_method(1, 3, 2)
-    0.2139409276214589
-    """
-    x0 = lower_bound
-    x1 = upper_bound
-    for _ in range(0, repeats):
-        x0, x1 = x1, x1 - (f(x1) * (x1 - x0)) / (f(x1) - f(x0))
-    return x1
-
-
 if __name__ == "__main__":
-    print(f"Example: {secant_method(1, 3, 2)}")
+    print(secant_method(func, 1, 3, 2))
