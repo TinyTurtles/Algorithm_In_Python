@@ -44,4 +44,3 @@ def bisection(function: Callable[[float], float], a: float, b: float) -> float:
 if __name__ == "__main__":
     # 使用bisection查找[a，b]中函数变为0的位置
     print(bisection(lambda x: x ** 3 - 1, -5, 5))
-
