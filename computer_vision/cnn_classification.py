@@ -16,7 +16,6 @@ in the parent dataste folder
 in the test set folder
 3. The labels of the iamges will be extracted from the folder name
 the image is present in.
-
 """
 
 # Part 1 - Building the CNN
@@ -99,3 +98,4 @@ if __name__ == "__main__":
         prediction = "Normal"
     if result[0][0] == 1:
         prediction = "Abnormality detected"
+

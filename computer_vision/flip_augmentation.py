@@ -2,44 +2,12 @@ import glob
 import os
 import random
 from string import ascii_lowercase, digits
-
 import cv2
 
 """
 Flip image and bounding box for computer vision task
 https://paperswithcode.com/method/randomhorizontalflip
 """
-
-# Params
-LABEL_DIR = ""
-IMAGE_DIR = ""
-OUTPUT_DIR = ""
-FLIP_TYPE = 1  # (0 is vertical, 1 is horizontal)
-
-
-def main() -> None:
-    """
-    Get images list and annotations list from input dir.
-    Update new images and annotations.
-    Save images and annotations in output dir.
-    """
-    img_paths, annos = get_dataset(LABEL_DIR, IMAGE_DIR)
-    print("Processing...")
-    new_images, new_annos, paths = update_image_and_anno(img_paths, annos, FLIP_TYPE)
-
-    for index, image in enumerate(new_images):
-        # Get random string code: '7b7ad245cdff75241935e4dd860f3bad'
-        letter_code = random_chars(32)
-        file_name = paths[index].split(os.sep)[-1].rsplit(".", 1)[0]
-        file_root = f"{OUTPUT_DIR}/{file_name}_FLIP_{letter_code}"
-        cv2.imwrite(f"/{file_root}.jpg", image, [cv2.IMWRITE_JPEG_QUALITY, 85])
-        print(f"Success {index+1}/{len(new_images)} with {file_name}")
-        annos_list = []
-        for anno in new_annos[index]:
-            obj = f"{anno[0]} {anno[1]} {anno[2]} {anno[3]} {anno[4]}"
-            annos_list.append(obj)
-        with open(f"/{file_root}.txt", "w") as outfile:
-            outfile.write("\n".join(line for line in annos_list))
 
 
 def get_dataset(label_dir: str, img_dir: str) -> tuple[list, list]:
@@ -115,7 +83,7 @@ def random_chars(number_char: int = 32) -> str:
     """
     Automatic generate random 32 characters.
     Get random string code: '7b7ad245cdff75241935e4dd860f3bad'
-    >>> len(random_chars(32))
+    # >>> len(random_chars(32))
     32
     """
     assert number_char > 1, "The number of character should greater than 1"
@@ -124,5 +92,33 @@ def random_chars(number_char: int = 32) -> str:
 
 
 if __name__ == "__main__":
-    main()
+
+    # Params
+    LABEL_DIR = ""
+    IMAGE_DIR = ""
+    OUTPUT_DIR = ""
+    FLIP_TYPE = 1  # (0 is vertical, 1 is horizontal)
+
+    """
+    Get images list and annotations list from input dir.
+    Update new images and annotations.
+    Save images and annotations in output dir.
+    """
+    img_paths, annos = get_dataset(LABEL_DIR, IMAGE_DIR)
+    print("Processing...")
+    new_images, new_annos, paths = update_image_and_anno(img_paths, annos, FLIP_TYPE)
+
+    for index, image in enumerate(new_images):
+        # Get random string code: '7b7ad245cdff75241935e4dd860f3bad'
+        letter_code = random_chars(32)
+        file_name = paths[index].split(os.sep)[-1].rsplit(".", 1)[0]
+        file_root = f"{OUTPUT_DIR}/{file_name}_FLIP_{letter_code}"
+        cv2.imwrite(f"/{file_root}.jpg", image, [cv2.IMWRITE_JPEG_QUALITY, 85])
+        print(f"Success {index+1}/{len(new_images)} with {file_name}")
+        annos_list = []
+        for anno in new_annos[index]:
+            obj = f"{anno[0]} {anno[1]} {anno[2]} {anno[3]} {anno[4]}"
+            annos_list.append(obj)
+        with open(f"/{file_root}.txt", "w") as outfile:
+            outfile.write("\n".join(line for line in annos_list))
     print("DONE ✅")

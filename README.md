@@ -35,14 +35,12 @@
   * [One Dimensional](cellular_automata/one_dimensional.py)
 
 ## Compression(压缩算法)
-  * [Burrows Wheeler](compression/burrows_wheeler.py)
-  * [Huffman](compression/huffman.py)
-  * [Lempel Ziv](compression/lempel_ziv.py)
-  * [Lempel Ziv Decompress](compression/lempel_ziv_decompress.py)
-  * [Peak Signal To Noise Ratio](compression/peak_signal_to_noise_ratio.py)
-  * [Run Length Encoding](compression/run_length_encoding.py)
+  * [BWT数据转换算法](compression/burrows_wheeler.py)
+  * [Huffman压缩算法](compression/huffman.py)
+  * [LZ压缩和解压缩算法](compression/lempel_ziv.py)
+  * [PSNR计算图像压缩质量](compression/peak_signal_to_noise_ratio.py)
 
-## Computer Vision
+## Computer Vision（计算机视觉）
   * [Cnn Classification](computer_vision/cnn_classification.py)
   * [Flip Augmentation](computer_vision/flip_augmentation.py)
   * [Harris Corner](computer_vision/harris_corner.py)

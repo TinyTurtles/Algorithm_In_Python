@@ -19,8 +19,8 @@ def bwt_transform(s: str) -> BWTTransformDict:
 
         返回值：
             返回BWTTransformDict类
-            BWTTransformDict[bwt_string]: 经过BWT算法处理的字符串
-            BWTTransformDict[idx_original_string]: 列表索引
+                BWTTransformDict[bwt_string]: 经过BWT算法处理的字符串
+                BWTTransformDict[idx_original_string]: 列表索引
 
         示例：
             bwt_transform("a_asa_da_casa")

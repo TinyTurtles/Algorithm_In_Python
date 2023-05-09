@@ -1,3 +1,7 @@
+"""
+    霍夫曼（Huffman）编码是一种将字符（或符号）转换为可变长度二进制位串的无损数据压缩算法。
+    它利用出现频率较高的字符使用较短的编码，而较不常用字符则使用较长的编码方式。
+"""
 from __future__ import annotations
 from burrows_wheeler import bwt_transform, reverse_bwt
 
@@ -110,10 +114,10 @@ def bwt_huffman_encode(raw_file_list: list) -> HuffmanDict:
 def bwt_huffman_decode(huf_file: HuffmanDict) -> str:
     """ BWT和哈夫曼编码解压缩文件
         输入值：
-        返回HuffmanDict类
-            HuffmanDict[Huf_encode]: 经过huffman编码处理的字符串
-            HuffmanDict[Huf_letters]: huffman编码表
-            HuffmanDict[Huf_letters]: bwt列表索引表
+            返回HuffmanDict类
+                HuffmanDict[Huf_encode]: 经过huffman编码处理的字符串
+                HuffmanDict[Huf_letters]: huffman编码表
+                HuffmanDict[Huf_letters]: bwt列表索引表
 
         返回值：
             返回字符串
